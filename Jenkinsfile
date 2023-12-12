@@ -4,11 +4,15 @@ pipeline {
         stage("Build"){
             steps {
                 echo "Hello Build"
+                sleep(5)
+                echo "Hello Build"
             }
         }
 
         stage("Test"){
             steps {
+                echo "Hello Test"
+                sleep(5)
                 echo "Hello Test"
             }
         }
@@ -16,7 +20,8 @@ pipeline {
         stage("Deploy"){
             steps {
                 echo "Hello Deploy"
-                sh "error"
+                sleep(5)
+                echo "Hello Deploy"
             }
         }
     }
