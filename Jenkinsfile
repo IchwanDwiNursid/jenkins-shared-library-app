@@ -65,6 +65,7 @@ pipeline {
                 echo "Hello Deploy"
                 sleep(10)
                 echo "Hello Deploy"
+                sh "ls -la"
             }
         }
     }
