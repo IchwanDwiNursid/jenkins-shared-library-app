@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+         stage("prepare"){
+            steps {
+                echo "start jonb : ${env.JOB_NAME}"
+                echo "start build : ${env.BUILD_NUMBER}"
+                echo "Branch Name : ${env.BRANCH_NAME}"
+            }
+        }
         stage("Build"){
             steps {
                 echo "Hello Build"
@@ -20,7 +27,7 @@ pipeline {
                 sleep(5)
                 echo "Hello Test"
                 script {
-                    def data = [
+                    def data = [    // object pakeknya array
                         "firstName" : "Ichwan",
                         "lastName" : "Nursid"
                     ]
