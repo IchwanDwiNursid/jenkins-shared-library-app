@@ -23,7 +23,7 @@ pipeline {
     // }
     stages {
         stage("OS_SETUP"){ //Matrix
-            matrix {
+            matrix{
                 axes {
                     axis {
                         name "OS"
@@ -34,14 +34,16 @@ pipeline {
                         values "32", "64"
                     }
                 }
-            }
-            stages{
-                stage("OS SETUP"){
-                    steps {
-                        echo "Hello ${OS} ${ARCH}"
+
+                stages{
+                    stage("OS SETUP"){
+                        steps {
+                            echo "Hello ${OS} ${ARCH}"
+                        }
                     }
                 }
             }
+           
         }
         stage("preparation"){
             parallel{
