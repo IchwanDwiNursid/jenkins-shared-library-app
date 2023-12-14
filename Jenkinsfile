@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent any //bisa juga di kasih di stage
     environment {
         AUTHOR = "Ichwan Dwi Nursid"
         EMAIL = "vV6xq@example.com"
@@ -25,11 +25,11 @@ pipeline {
         }
         stage("Build"){
             environment {
-                APP = credentials("my-password")
+                APP = credentials("my-password") // get from jenkins credentials 
             }
             steps {
-                echo "username = ${APP_USR}"
-                echo "password = ${APP_PSW}"
+                echo "username = ${APP_USR}" // username di beri suffx USR akan di reject
+                echo "password = ${APP_PSW}" // password di beri suffx PSW akan di reject
                 echo "Hello Build"
                 sleep(5)
                 echo "Hello Build"
@@ -38,6 +38,7 @@ pipeline {
                         echo "Hello ${i}"
                     }
                 }
+                sh "echo 'app password = ${APP_PSW}' > 'rahasia.txt'"
             }
         }
 
