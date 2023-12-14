@@ -6,7 +6,7 @@ pipeline {
     }
     options {
         disableConcurrentBuilds()
-        timeout(time: 10, unit: 'SECONDS')
+        timeout(time: 15, unit: 'MINUTES')
     }
     parameters {
         string(name: "NAME", defaultValue:"Ichwan", description: "What is your name?")
@@ -73,7 +73,7 @@ pipeline {
             }
         }
 
-          stage("Parameter"){
+        stage("Parameter"){
             steps {
                 echo "NAME = ${params.NAME}"
                 echo "DESCRIPTION = ${params.DESCRIPTION}"
