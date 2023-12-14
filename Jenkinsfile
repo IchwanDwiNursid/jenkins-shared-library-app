@@ -22,6 +22,27 @@ pipeline {
     //     upstream(upstreamProjects: 'job1, job2', threshold: hudson.model.Result.SUCCESS)
     // }
     stages {
+        stage("OS_SETUP"){ //Matrix
+            matrix {
+                axes {
+                    axis {
+                        name "OS"
+                        values "Windows", "Linux", "MacOS"
+                    }
+                    axis {
+                        name "ARCH"
+                        values "32", "64"
+                    }
+                }
+            }
+            stages{
+                stage("OS SETUP"){
+                    steps {
+                        echo "Hello ${OS} ${ARCH}"
+                    }
+                }
+            }
+        }
         stage("preparation"){
             parallel{
                 stage("nodejs preparation"){
