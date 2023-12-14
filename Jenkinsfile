@@ -4,6 +4,10 @@ pipeline {
         AUTHOR = "Ichwan Dwi Nursid"
         EMAIL = "vV6xq@example.com"
     }
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'MINUTES')
+    }
     parameters {
         string(name: "NAME", defaultValue:"Guest", description: "What is your name?")
         text(name: "NAME", defaultValue:"Guest", description: "What is your name?")
