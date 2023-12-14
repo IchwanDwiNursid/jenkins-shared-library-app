@@ -74,7 +74,7 @@ pipeline {
                 ok "Yes, Of course"
                 submitter "ichwan,nursid"
                 parameters {
-                    choice(name: "TARGET_ENV" , choises: ["DEV", "PROD","QA"], description:" Which Environment?")
+                    choice(name: "TARGET_ENV" , choices: ["DEV", "PROD","QA"], description:" Which Environment?")
                 }
             }
             steps {
