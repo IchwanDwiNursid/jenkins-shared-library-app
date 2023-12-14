@@ -38,7 +38,7 @@ pipeline {
                         echo "Hello ${i}"
                     }
                 }
-                sh "echo 'app password = ${APP_PSW}' > 'rahasia.txt'"
+                sh 'echo "app password = $APP_PSW" > "rahasia.txt"'
             }
         }
 
