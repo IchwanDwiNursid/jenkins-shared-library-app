@@ -9,11 +9,11 @@ pipeline {
         timeout(time: 10, unit: 'SECONDS')
     }
     parameters {
-        string(name: "NAME", defaultValue:"Guest", description: "What is your name?")
-        text(name: "NAME", defaultValue:"Guest", description: "What is your name?")
-        booleanParam(name: "TOGGLE", defaultValue: true, description: "Toggle this value")
-        choice(name: "CHOICE", choices: ["One", "Two", "Three"], description: "Pick something")
-        password(name: "PASSWORD", defaultValue: "SECRET", description: "Enter a password")
+        string(name: "NAME", defaultValue:"Ichwan", description: "What is your name?")
+        text(name: "DESCRIPTION", defaultValue:"", description: "Tell Me About You?")
+        booleanParam(name: "DEPLOY", defaultValue: false, description: "Need to Deploy")
+        choice(name: "SOCIAL_MEDIA", choices: ["Instagram", "Facebook", "Twitter"], description: "Pick something")
+        password(name: "SECRET", defaultValue: "", description: "Encrypt Key")
     }
     stages {
          stage("prepare"){
@@ -70,6 +70,16 @@ pipeline {
                 sleep(10)
                 echo "Hello Deploy"
                 sh "ls -la"
+            }
+        }
+
+          stage("Parameter"){
+            steps {
+                echo "NAME = ${params.NAME}"
+                echo "DESCRIPTION = ${params.DESCRIPTION}"
+                echo "DEPLOY = ${params.DEPLOY}"
+                sleep(10)
+                echo "SECRET = ${params.SECRET}"
             }
         }
     }
