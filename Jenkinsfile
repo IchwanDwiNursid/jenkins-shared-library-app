@@ -98,6 +98,19 @@ pipeline {
                 echo "SECRET = ${params.SECRET}"
             }
         }
+
+        stage("release"){
+            when {
+                expression {
+                    params.DEPLOY == true
+                }
+            }
+            steps {
+                echo "Hello Release"
+                sleep(5)
+                echo "Hello Release"
+            }
+        }
     }
     post {
        always {
