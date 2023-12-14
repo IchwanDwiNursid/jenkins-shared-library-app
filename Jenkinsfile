@@ -15,6 +15,10 @@ pipeline {
         choice(name: "SOCIAL_MEDIA", choices: ["Instagram", "Facebook", "Twitter"], description: "Pick something")
         password(name: "SECRET", defaultValue: "", description: "Encrypt Key")
     }
+
+    triggers {
+        cron('*/5 * * * *')
+    }
     stages {
          stage("prepare"){
             steps {
