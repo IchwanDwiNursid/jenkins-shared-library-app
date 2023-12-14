@@ -13,7 +13,12 @@ pipeline {
             }
         }
         stage("Build"){
+            environment {
+                APP = credentials("my-password")
+            }
             steps {
+                echo "username = ${APP_USR}"
+                echo "password = ${APP_PSW}"
                 echo "Hello Build"
                 sleep(5)
                 echo "Hello Build"
