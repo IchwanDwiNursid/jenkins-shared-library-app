@@ -20,10 +20,10 @@ pipeline {
                 sleep(5)
                 echo "Hello Test"
                 script {
-                    def data = {
+                    def data = [
                         "firstName" : "Ichwan",
                         "lastName" : "Nursid"
-                    }
+                    ]
 
                     writeJSON(file: "data.json", json: data)
                 }
