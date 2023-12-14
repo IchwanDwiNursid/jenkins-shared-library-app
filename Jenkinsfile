@@ -4,12 +4,23 @@ pipeline {
         AUTHOR = "Ichwan Dwi Nursid"
         EMAIL = "vV6xq@example.com"
     }
+    parameters {
+        string(name: "NAME", defaultValue:"Guest", description: "What is your name?")
+        text(name: "NAME", defaultValue:"Guest", description: "What is your name?")
+        booleanParam(name: "TOGGLE", defaultValue: true, description: "Toggle this value")
+        choice(name: "CHOICE", choices: ["One", "Two", "Three"], description: "Pick something")
+        password(name: "PASSWORD", defaultValue: "SECRET", description: "Enter a password")
+    }
     stages {
          stage("prepare"){
             steps {
                 echo "start jonb : ${env.JOB_NAME}"
                 echo "start build : ${env.BUILD_NUMBER}"
                 echo "Branch Name : ${env.BRANCH_NAME}"
+                script {
+                    def buildDisplay = currentBuild.getDisplayName()
+                    echo "build display : ${buildDisplay}"
+                }
             }
         }
         stage("Build"){
