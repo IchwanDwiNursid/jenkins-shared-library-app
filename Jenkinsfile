@@ -23,7 +23,7 @@ pipeline {
     // }
     stages {
         stage("preparation"){
-            stages{
+            parallel{
                 stage("nodejs preparation"){
                     steps {
                         echo "Hello NodeJs"
