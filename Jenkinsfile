@@ -18,6 +18,8 @@ pipeline {
 
     triggers {
         cron('*/5 * * * *')
+        pollSCM('*/5 * * * *')
+        upstream(upstreamProjects: 'job1, job2', threshold: hudson.model.Result.SUCCESS)
     }
     stages {
          stage("prepare"){
@@ -67,9 +69,19 @@ pipeline {
         }
 
         stage("Deploy"){
+            input {
+                message "Can we Deploy?"
+                ok "Yes, Of course"
+                submitter "ichwan,nursid"
+                parameters {
+                    choice(name: "TARGET_ENV" , choises: ["DEV", "PROD","QA"], description: Which Environment?)
+                }
+            }
             steps {
-                echo "AUTHOR = ${AUTHOR}"
-                echo "EMAIL = ${EMAIL}"
+                // echo "AUTHOR = ${AUTHOR}"
+                // echo "EMAIL = ${EMAIL}"
+                echo "parameter TARGET_ENV = ${params.TARGET_ENV}"
+                sleep(5)
                 echo "Hello Deploy"
                 sleep(10)
                 echo "Hello Deploy"
