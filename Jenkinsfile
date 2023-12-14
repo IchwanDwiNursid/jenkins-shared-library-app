@@ -22,7 +22,21 @@ pipeline {
     //     upstream(upstreamProjects: 'job1, job2', threshold: hudson.model.Result.SUCCESS)
     // }
     stages {
-         stage("prepare"){
+        stage("preparation"){
+            stages{
+                stage("nodejs preparation"){
+                    steps {
+                        echo "Hello NodeJs"
+                    }
+                }
+                stage("npm preparation"){
+                    steps {
+                        echo "Hello Npm"
+                    }
+                }
+            }
+        }
+        stage("prepare"){
             steps {
                 echo "start jonb : ${env.JOB_NAME}"
                 echo "start build : ${env.BUILD_NUMBER}"
