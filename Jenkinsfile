@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        AUTHOR = "Ichwan Dwi Nursid"
+        EMAIL = "vV6xq@example.com"
+    }
     stages {
          stage("prepare"){
             steps {
@@ -39,6 +43,8 @@ pipeline {
 
         stage("Deploy"){
             steps {
+                echo "AUTHOR = ${AUTHOR}"
+                echo "EMAIL = ${EMAIL}"
                 echo "Hello Deploy"
                 sleep(10)
                 echo "Hello Deploy"
