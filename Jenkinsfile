@@ -22,10 +22,10 @@ pipeline {
                 }
             }
         }
-        stage("resource groovy") {
+        stage("Library resource") {
             steps {
                 script {
-                    def config = libraryResource(config/build.json) 
+                    def config = libraryResource("config/build.json") 
                     echo(config)
                 }
             }
