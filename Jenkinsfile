@@ -1,6 +1,6 @@
 @Library("jenkins-shared-library@main") _
 
-import programmerzamannow.jenkins.Output
+import ichwan.jenkins.Output
 
 
 
