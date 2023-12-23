@@ -3,6 +3,6 @@
 import ichwan.jenkins.Output
 
 ichwanPipeline([
-    type: "maven"
+    type: "node"
 ])
 
