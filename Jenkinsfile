@@ -20,6 +20,7 @@ pipeline {
                 script {
                    echo author.name()
                    echo author.channel()
+                   author()
                 }
             }
         }
