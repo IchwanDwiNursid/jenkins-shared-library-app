@@ -15,6 +15,14 @@ pipeline {
                 }
             }
         }
+        stage("function") {
+            steps {
+                script {
+                    author.name()
+                    author.channel()
+                }
+            }
+        }
         stage("Hello World") {
             steps {
                 script {
