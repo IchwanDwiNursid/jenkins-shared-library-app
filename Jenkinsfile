@@ -2,6 +2,7 @@
 
 import ichwan.jenkins.Output
 
-
-mavenPipeline()
+ichwanPipeline([
+    type: "maven"
+])
 
