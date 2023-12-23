@@ -18,8 +18,8 @@ pipeline {
         stage("function") {
             steps {
                 script {
-                    author.name()
-                    author.channel()
+                   echo author.name()
+                   echo author.channel()
                 }
             }
         }
