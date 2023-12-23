@@ -53,5 +53,15 @@ pipeline {
                 }
             }
         }
+         stage("Map Parameter") {
+            steps {
+                script {
+                   hello.person([
+                    firstname: "John",
+                    lastname: "Windah"
+                   ])
+                }
+            }
+        }
     }
 }
